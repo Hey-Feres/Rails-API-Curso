@@ -6,12 +6,12 @@ class ContactsController < ApplicationController
     @contacts = Contact.all
     # render json: @contacts.map{ |contact| contact.attributes.merge({ author: "Bruno" }) }
     # render json: @contacts, methods: :author
-    render json: @contacts, include: [:kind, :phones, :address]
+    render json: @contacts, include: :kind
   end
 
   # GET /contacts/1
   def show
-    render json: @contact, include: [:kind, :phones, :address]
+    render json: @contact, include: [:kind] #, meta: { author: "Bruno Feres Villela" }
   end
 
   # POST /contacts
@@ -46,10 +46,11 @@ class ContactsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def contact_params
-      params.require(:contact).permit( 
-        :name, :email, :birthdate, :kind_id, 
-        phones_attributes: [ :id, :number, :_destroy ],
-        address_attributes: [ :id, :street, :city, :_destroy ],
-      )
+      # params.require(:contact).permit( 
+      #   :name, :email, :birthdate, :kind_id, 
+      #   phones_attributes: [ :id, :number, :_destroy ],
+      #   address_attributes: [ :id, :street, :city, :_destroy ],
+      # )
+      ActiveModelSerializers::Deserialization.jsonapi_parse(params)
     end
 end

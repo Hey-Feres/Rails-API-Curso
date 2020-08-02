@@ -40,3 +40,14 @@ _____________________________
 				person = Person.new
 				person.from_json(json, true) 
 				# => #<Person:0x007fec5e7a0088 @age=22, @awesome=true, @name="bob">
+
+_____________________________
+
+-> Constrains REST
+	* Cliente / Servidor
+	* Stateless
+	* Cache
+	* Interface Uniforme
+		* Hypermedia
+	* Sistema em Camadas
+	* Código sob Demanda

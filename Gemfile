@@ -29,11 +29,16 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
 # Translations
 gem 'rails-i18n'
+# Active Model Serializer Implementation and Rails Hooks
+gem 'active_model_serializers'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Fake Data for tests
   gem 'faker'
+  # 
+  gem 'foreman'
 end
 
 group :development do
