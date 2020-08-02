@@ -1,1 +1,1 @@
-run: rails s -p 3000
+git: git add . && git commit -m 'Update' && git push
