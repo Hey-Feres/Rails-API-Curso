@@ -39,5 +39,5 @@ class AddressesController < ApplicationController
 	    def address_params
 	    	# params.require(:address).permit(:city, :street)
 	    	ActiveModelSerializers::Deserialization.jsonapi_parse(params)
-	    end	    
+	    end
 end
