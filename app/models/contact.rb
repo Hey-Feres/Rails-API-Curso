@@ -8,4 +8,7 @@ class Contact < ApplicationRecord
 	accepts_nested_attributes_for :address, allow_destroy: true
 	# Pagination
 	paginates_per 10
+	# Validations
+	validates_presence_of :kind
+	validates_presence_of :address
 end
