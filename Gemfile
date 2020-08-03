@@ -39,6 +39,8 @@ gem 'devise_token_auth'
 gem 'devise'
 # Devise i18n translations
 gem 'devise-i18n'
+# A plugin for versioning Rails based RESTful APIs.
+gem 'versionist'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

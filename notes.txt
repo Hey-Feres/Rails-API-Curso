@@ -94,3 +94,16 @@ _____________________________
 				- Header: Dados informacionais do token
 				- Payload: Dados que são enviados ao servidor
 				- Signature: Validação da request baseado nos dados do header + payload + secret do server
+
+_____________________________
+-> Estrategias de Versionamento
+	* Query Parameters
+		ex: /users/100?v=1
+	* HTTP Header
+		ex: Accept: application/vnd.example.com; version=1
+	* HTTP Custom Header
+		ex: X-Version: 2.0
+	* Hostname ou Subdominio
+		ex: v3.api.example.com
+	* Segmento de URL
+		ex: /v1/users/100

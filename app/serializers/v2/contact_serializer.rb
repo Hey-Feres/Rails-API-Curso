@@ -1,15 +1,15 @@
 class ContactSerializer < ActiveModel::Serializer
 	# Associations
 	belongs_to :kind, optional: true do
-		link(:related) { contact_kind_url(object.id) }
+		link(:related) { v2_contact_kind_url(object.id) }
 	end
 	
 	has_many :phones, dependent: :destroy do
-		link(:related) { contact_phones_url(object.id) }
+		link(:related) { v2_contact_phones_url(object.id) }
 	end
 	
 	has_one :address, dependent: :destroy do
-		link(:related) { contact_address_url(object.id) }
+		link(:related) { v2_contact_address_url(object.id) }
 	end
 
 	attributes :id, :name, :email, :birthdate #, :author
