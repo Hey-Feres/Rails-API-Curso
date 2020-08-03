@@ -51,3 +51,46 @@ _____________________________
 		* Hypermedia
 	* Sistema em Camadas
 	* Código sob Demanda
+
+_____________________________
+-> Auth Methods
+	// STATEFULL AUTH
+		* HTTP Basic
+			https://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Basic.html
+			code:
+				include ActionController::HttpAuthentication::Basic::ControllerMethods
+				http_basic_authenticate_with
+		* Digest
+			https://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Digest.html
+			code:
+				include ActionController::HttpAuthentication::Digest::ControllerMethods
+				USERS = { "bruno" => Digest::MD5.hexdigest(["bruno","Application","secret"].join(":")) }
+				#
+				def authenticate
+					# authenticate_or_request_with_http_digest(REALM) do |username|
+					authenticate_or_request_with_http_digest("Application") do |username|
+					USERS[username]
+				end
+		* Simple Token
+			https://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token.html
+			code:
+				include ActionController::HttpAuthentication::Token::ControllerMethods
+				TOKEN = "secret"	
+				#
+			    def authenticate
+			      authenticate_or_request_with_http_token do |token, options|
+			        # Compare the tokens in a time-constant manner, to mitigate
+			        # timing attacks.
+			        ActiveSupport::SecurityUtils.secure_compare(token, TOKEN)
+			      end
+			    end
+	// STATELESS AUTH
+		* JWT
+			https://jwt.io
+			https://github.com/jwt/ruby-jwt
+			estrutura:
+				header|payload|signature 
+				aaaaaa.bbbbbb.cccccc
+				- Header: Dados informacionais do token
+				- Payload: Dados que são enviados ao servidor
+				- Signature: Validação da request baseado nos dados do header + payload + secret do server

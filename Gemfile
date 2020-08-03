@@ -31,6 +31,14 @@ gem 'rack-cors'
 gem 'rails-i18n'
 # Active Model Serializer Implementation and Rails Hooks
 gem 'active_model_serializers'
+# A ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
+gem 'jwt'
+# Simple, multi-client and secure token-based authentication for Rails.
+gem 'devise_token_auth'
+# Devise is a flexible authentication solution for Rails based on Warden.
+gem 'devise'
+# Devise i18n translations
+gem 'devise-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

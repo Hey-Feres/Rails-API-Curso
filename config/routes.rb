@@ -1,4 +1,8 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do  	
+  	mount_devise_token_auth_for 'User', at: 'auth'
+
+	# resources :auths, only: :create
+	resources :kinds
 
 	resources :contacts do
 		
@@ -14,5 +18,4 @@ Rails.application.routes.draw do
 		resource :address, only: %i[ show update create destroy]
 		resource :address, only: %i[ show update create destroy], path: 'relashionships/address'
 	end
-
 end
