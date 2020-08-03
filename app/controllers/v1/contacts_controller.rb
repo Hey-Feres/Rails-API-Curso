@@ -5,9 +5,13 @@ module V1
     
     # GET /contacts
     def index
-      @contacts = Contact.all
+      # @contacts = Contact.all.page(params[:page][:number]).per(params[:page][:size])
+      # @contacts = Contact.all.page(params[:page][:number])
+      @contacts = Contact.all.page(params[:page].present? ? params[:page] : 1)
       # render json: @contacts.map{ |contact| contact.attributes.merge({ author: "Bruno" }) }
       # render json: @contacts, methods: :author
+      # Pagination by Header
+      # paginate json: @contacts, include: :kind
       render json: @contacts, include: :kind
     end
 

@@ -41,6 +41,10 @@ gem 'devise'
 gem 'devise-i18n'
 # A plugin for versioning Rails based RESTful APIs.
 gem 'versionist'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for modern web app frameworks and ORMs
+gem 'kaminari'
+# Paginate in your headers, not in your response body. This follows the proposed RFC-8288 standard for Web linking.
+# gem 'api-pagination'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

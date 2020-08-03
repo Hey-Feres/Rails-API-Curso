@@ -6,4 +6,6 @@ class Contact < ApplicationRecord
 	# Nested Attributes
 	accepts_nested_attributes_for :phones,  allow_destroy: true
 	accepts_nested_attributes_for :address, allow_destroy: true
+	# Pagination
+	paginates_per 10
 end
